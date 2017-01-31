@@ -5,19 +5,18 @@ package hafizh.him.javaclass;
  */
 public class barang {
 
-    public  static final int ELEKTRONIK=1;
-    public  static final int NON_ELEKTRONIK=2;
+    public static final int ELEKTRONIK = 1;
+    public static final int Non_ELECTRONIK = 2;
     private String nama;
     private int category;
     private int harga;
 
-    public barang(int category, int harga, String nama) {
+    public barang(String nama, int category, int harga) {
+        this.nama = nama;
         this.setCategory(category);
         this.harga = harga;
-        this.nama = nama;
     }
 
-    @Override
     public String toString(){
         return nama+" | "+this.getStringCategory()+" | "+this.harga+"\n";
     }
@@ -35,14 +34,14 @@ public class barang {
     }
 
     public String getStringCategory(){
-        if (category==1)
-            return  "Elektronik";
+        if (category == 1)
+            return "Elektronik";
         else
             return "Non Elektronik";
     }
 
     public void setCategory(int category) {
-        if (category!=1 && category!=2)
+        if (category !=1 && category != 2)
             this.category=2;
         else
             this.category = category;
