@@ -31,14 +31,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void calculate (View view){
         EditText input1 = (EditText) findViewById(R.id.input1);
         EditText input2 = (EditText) findViewById(R.id.input2);
+        EditText input3 = (EditText) findViewById(R.id.input3);
         Spinner spinner = (Spinner) findViewById(R.id.geometry);
-        double inp2 = 0, inp1 = 0;
+        double inp2 = 0, inp1 = 0, inp3 = 0;
 
         String operator = spinner.getSelectedItem().toString();
         String hasil = "";
         inp1 = Double.parseDouble(input1.getText().toString());
         if(input2.isEnabled()){
              inp2 = Double.parseDouble(input2.getText().toString());
+        }
+        if (input3.isEnabled()){
+            inp3 = Double.parseDouble(input3.getText().toString());
         }
 
         if(operator.equalsIgnoreCase("Lingkaran")){
@@ -50,10 +54,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             double hyp = Math.sqrt((inp1 * inp1) + (inp2 * inp2));
             hasil += "Keliling dari Segitiga siku-siku adalah :" + (inp1 + inp2 + hyp);
 
-        }else {
+        }else if (operator.equalsIgnoreCase("Persegi")){
 
             hasil = "Luas dari Persegi adalah :"+(inp1*inp2)+"\n";
             hasil += "Keliling dari persegi adalah :"+((inp1*2)+(inp2*2));
+
+        }else if (operator.equalsIgnoreCase("Balok"))
+        {
+            hasil = "Volume Balok adalah : "+(inp1*inp2*inp3)+"\n";
+            hasil += "Luas Permukaan Balok adalah : "+((2*(inp1*inp2))+(2*(inp1*inp3))+(2*(inp2*inp3)));
+        }
+        else
+        {
+            hasil = "Luas Permukaan dari Bola adalah : "+(4*Math.PI*inp1*inp1)+"\n";
+            hasil += "Volume dari Bola adalah : "+((4/3)*Math.PI*inp1*inp1*inp1)+"\n";
         }
 
         TextView result = (TextView) findViewById(R.id.result);
@@ -65,20 +79,39 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         TextView text1 = (TextView) findViewById(R.id.txt1);
         TextView text2 = (TextView) findViewById(R.id.txt2);
         EditText input2 = (EditText) findViewById(R.id.input2);
+        TextView text3 = (TextView) findViewById(R.id.txt3);
+        EditText input3 = (EditText) findViewById(R.id.input3);
 
         String operator = parent.getItemAtPosition(position).toString();
         if (operator.equalsIgnoreCase("Lingkaran")){
             text1.setText("Jari - jari");
             input2.setEnabled(false);
+            input3.setEnabled(false);
             text2.setText("");
+            text3.setText("");
+
         }else if(operator.equalsIgnoreCase("Segitiga")){
             text1.setText("Alas");
             text2.setText("Tinggi");
             input2.setEnabled(true);
-        }else{
+        }else if(operator.equalsIgnoreCase("Persegi")){
             text1.setText("Panjang");
             text2.setText("Lebar");
+            text3.setText("");
             input2.setEnabled(true);
+            input3.setEnabled(false);
+        }else if (operator.equalsIgnoreCase("Balok")){
+            text1.setText("Panjang");
+            text2.setText("Lebar");
+            text3.setText("Tinggi");
+            input2.setEnabled(true);
+            input3.setEnabled(true);
+        }else {
+            text1.setText("Jari-jari");
+            text2.setText("");
+            text3.setText("");
+            input2.setEnabled(false);
+            input3.setEnabled(false);
         }
 
     }
