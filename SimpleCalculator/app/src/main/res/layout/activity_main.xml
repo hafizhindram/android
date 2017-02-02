@@ -28,22 +28,34 @@
         android:id="@+id/plus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="+"/>
+        android:text="+"
+           android:layout_weight="1"
+           android:textStyle="bold"
+           android:textSize="20dp"/>
        <RadioButton
         android:id="@+id/minus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="-"/>
+        android:text="-"
+           android:layout_weight="1"
+           android:textStyle="bold"
+           android:textSize="20dp"/>
         <RadioButton
             android:id="@+id/kali"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="*"/>
+            android:text="*"
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
         <RadioButton
             android:id="@+id/bagi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=":"/>
+            android:text=":"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
     </RadioGroup>
     <TextView
         android:text="Angka 2"
@@ -55,7 +67,7 @@
         android:layout_height="wrap_content" />
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:text="hitung"
         android:onClick="calculate"/>
     <TextView
