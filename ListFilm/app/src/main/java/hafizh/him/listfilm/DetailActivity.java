@@ -15,9 +15,9 @@ public class DetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Movie movie = (Movie) intent.getSerializableExtra("hafizh.him.listfilm");
 
-        ((TextView) findViewById(R.id.title)).setText(movie.title);
+        ((TextView) findViewById(R.id.judul)).setText(movie.judul);
         ((TextView) findViewById(R.id.description)).setText(movie.description);
-        ((TextView) findViewById(R.id.year)).setText("Tahun :"+movie.year);
-        ((TextView) findViewById(R.id.rating)).setText("Rating :"+movie.rating);
+        ((TextView) findViewById(R.id.year)).setText("Tahun: "+movie.year);
+        ((TextView) findViewById(R.id.rating)).setText("Rating: "+movie.rating);
     }
 }
